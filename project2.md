@@ -29,7 +29,7 @@ In the space below:
 
 ----------------------------------------------------------
 ### ERD
-
+![ERD](./images/erd.png)
 ----------------------------------------------------------
 ### User Stories
 As an avid visitor of new restaurants,
@@ -40,7 +40,7 @@ in case I am out to eat and need to use the restroom.
 
 ----------------------------------------------------------
 ### Wireframes
-![wireframe](./images/iGottaWire.png)
+![wireframe](./images/iGottaWire2.png)
 ----------------------------------------------------------
 
 Make a PR when you're done!
