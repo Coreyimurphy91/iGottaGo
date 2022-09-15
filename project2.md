@@ -40,7 +40,7 @@ in case I am out to eat and need to use the restroom.
 
 ----------------------------------------------------------
 ### Wireframes
-
+![wireframe](./images/iGottaWire.png)
 ----------------------------------------------------------
 
 Make a PR when you're done!
