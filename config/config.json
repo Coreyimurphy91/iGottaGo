@@ -1,0 +1,28 @@
+{
+  "development": {
+    "username": "corey",
+    "password": "C4n7T0uCh7h15$",
+    "database": "express_auth_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "corey",
+    "password": "C4n7T0uCh7h15$",
+    "database": "express_auth_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "corey",
+    "password": "C4n7T0uCh7h15$",
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+        "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+        }
+    }
+  }
+}
