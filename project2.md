@@ -11,9 +11,9 @@ Fork & Clone this repo.
 - [ ] In this space below, list **THREE** ideas for your Project 2. For each idea, include [user stories](https://www.atlassian.com/agile/project-management/user-stories) for each idea and a link to the API(s) you want to use for it.
 
 --------------------------------------------------------
-1. 
-2. 
-3.
+1. Skatepark locator (https://catalog.data.gov/dataset/skateparks) "As a travelling skateboarder, I want to be able to search any are I am in to find the nearest skateparks."
+## 2. Restraunt restroom rater (https://rapidapi.com/ptwebsolution/api/worldwide-restaurants/) "As a foodie, I like knowing there is a comfortable/stylish restroom where I go to eat in case I must relieve myself."
+3. Recipe creater(Or more specifically desserts) (https://rapidapi.com/spoonacular/api/recipe-food-nutrition/) "As someone without much to spend on more ingredients, I want to see what I can make with the ingredients I already have."
 ---------------------------------------------------------
 
 - [ ] Make a PR when you're done!
@@ -32,6 +32,11 @@ In the space below:
 
 ----------------------------------------------------------
 ### User Stories
+As an avid visitor of new restaurants,
+
+I want to be sure that I will have a comfortable place of relief,
+
+in case I am out to eat and need to use the restroom.
 
 ----------------------------------------------------------
 ### Wireframes
