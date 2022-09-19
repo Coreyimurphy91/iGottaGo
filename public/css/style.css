@@ -5,5 +5,30 @@ nav ul li {
 }
 
 h1 {
-  color: chartreuse;
+  color: rgb(87, 149, 255);
+  font-size: 6em;
+  text-align: center;
+}
+
+.getSearching {
+  text-align: center;
+  text-decoration: none;
+  font-size: 2em;
+  color: rgb(43, 131, 226);
+  padding-top: 3em;
+}
+
+.purpose {
+  text-align: center;
+  padding-top: 2em;
+}
+
+.search {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.log {
+  text-align: right;
+  padding: .5em 1em 0 0;
 }

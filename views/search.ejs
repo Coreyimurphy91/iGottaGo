@@ -1,0 +1,19 @@
+<form class="search" action="/search" method="POST">
+    <label for="areaSearch">Search by Zip-Code</label>
+    <input id="areaSearch" type="text" name="zip" required>
+
+    <input type="submit" value="Start Looking">
+</form>
+
+
+<h1>Restaurants in your area</h1>
+
+<% for( let index = 0; index < restaurants.length; index++ ) { %>
+    <% let restaurant = restaurants[index] %> 
+    <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.cuisine %></td>
+        <td><%= restaurant.rating %></td>
+    </tr>
+<% } %>
