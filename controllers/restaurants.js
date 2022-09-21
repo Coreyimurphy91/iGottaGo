@@ -18,4 +18,20 @@ router.get('/', (req, res) => {
     })
 });
 
+router.get('/:id', (req, res) => {
+    db.Restaurant.findOne({
+        where: { id: req.params.id },
+        // include: [db.name, db.review] 
+      })
+      .then((restaurant) => {
+        if (!restaurant) throw Error()
+        console.log(restaurant.name)
+        res.render('showRest', { restaurant: restaurant })
+      })
+      .catch((error) => {
+        console.log(error)
+        res.status(400).render('404')
+      })
+})
+
 module.exports = router;
