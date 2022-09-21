@@ -32,3 +32,12 @@ h1 {
   text-align: right;
   padding: .5em 1em 0 0;
 }
+
+.sameLine {
+  display: inline;
+}
+
+#map {
+  height: 500px;
+  width: 100%;
+}

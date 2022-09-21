@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Review.init({
+    name: DataTypes.STRING,
     cleanliness: DataTypes.STRING,
     features: DataTypes.STRING,
     comfort: DataTypes.INTEGER,

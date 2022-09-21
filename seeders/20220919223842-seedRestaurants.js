@@ -37,7 +37,6 @@ module.exports = {
         restaurants.length) {
         // iterate thorugh our responses and for each response, check that the request was successful and that there is data to add to db
         restaurants.forEach(restaurant => {
-
           // adding a json object for each row to be added to our airlines table
           restaurantsToUpload.push({
             name: restaurant.name,
@@ -46,6 +45,7 @@ module.exports = {
             type: restaurant.heading_text,
             address: `${restaurant.address}, ${restaurant.city}, ${restaurant.state} ${restaurant.zip}`,
             hours: restaurant.description?.op_hours,
+            imageURL: restaurant.img_paths[0].full_image_path,
             createdAt: seedDate,
             updatedAt: seedDate
           })

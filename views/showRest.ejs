@@ -1,1 +1,90 @@
-<h1> <%= restaurant.name %> </h1>
+<h1>
+    <%= restaurant.name %>
+</h1>
+
+<div class="row">
+    <div class="well">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <h3>Genre: </h3>
+                <p> <%= restaurant.type %> </p>
+                <h3>Hours: </h3>
+                 <% if(restaurant.hours != null) { %> 
+                    <%= restaurant.hours %> 
+                    <% } else { %> 
+                    <p>Hours not posted.</p>
+                    <% } %>
+                <h3>Address: </h3>
+                <p><%= restaurant.address %> </p>    
+                <h3>Location: </h3>
+               
+                 <%= restaurant.longitude %>
+                 <%= restaurant.latitude %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="well">
+    <h2>Create a review of <%= restaurant.name %>'s restrooms: </h2>
+    <form method="POST" action="/restaurants/<%= restaurant.id%>/review">
+        <div class="input-group mb-3 w-25">
+        <input name="name" class="form-control" width="40%" type="text" placeholder="Reviewer's name">
+        </div>
+    </br>
+        <input name="clealiness" class="form-control" type="text" placeholder="Describe the restaurant's restroom's cleanliness">
+    </br>
+        <input name="features" class="form-control" type="text" placeholder="Any notable features in the restroom?">
+    </br>
+        <div>
+            <h3 class="sameLine">Comfort</h3>
+            <p class="sameLine">(1 : Do not recommend - 5 : Highly recommend)</p>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option1" value="1"> 1
+            </label>
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option2" value="2"> 2
+            </label>
+            <label class="btn btn-warning active">
+              <input type="radio" name="comfort" id="option3" value="3" checked> 3
+            </label>
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option3" value="4"> 4
+            </label>
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option3" value="5"> 5
+            </label>
+          </div>
+          <button class="btn btn-info" type="submit">Submit Review</button>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="well">
+      <% if(Array.isArray(restaurant.reviews) && restaurant.reviews.length > 0) { %>
+        <% restaurant.reviews.forEach((review) => { %>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <%= review.name %>
+            </div>
+            <div class="panel-body">
+              <%= review.cleanliness %>
+              <%= review.features %>
+              <%= review.comfort %>
+            </div>
+            <div class="panel-footer">
+              <b>posted at:</b> <%= review.updatedAt %>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            No Reviews...
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div> 

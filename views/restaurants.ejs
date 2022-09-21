@@ -4,14 +4,16 @@
         <% restaurants.forEach((restaurant) => { %>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <%= restaurant.name %>
+              <h3><a href="/restaurants/<%= restaurant.id %> "><%= restaurant.name %></a></h3>
             </div>
             <div class="panel-body">
-              <%= restaurant.longitude %>
-              <%= restaurant.latitude %>
-              <%= restaurant.type %>
-              <%= restaurant.address %>
-              <%= restaurant.hours %>
+              <p> <%= restaurant.name %> is located at <%= restaurant.address %>.</p>
+              <p>Genre: <%= restaurant.type %></p>
+              <% if(restaurant.hours != null) { %> 
+                <p> Business hours are <%= restaurant.hours %>. </p>
+                <% } else { %> 
+                <p>Business hours are not posted.</p>
+                <% } %></p>
             </div>
             <div class="panel-footer">
               <b>posted at:</b> <%= restaurant.updatedAt %>
