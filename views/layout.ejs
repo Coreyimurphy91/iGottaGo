@@ -18,13 +18,30 @@
   <body>
     <%- include('partials/alerts') %>
 
-    <% if (!currentUser) {%>
-      <p class="log"><a href="/auth/signup">Signup</a>
-      <a href="/auth/login">Login</a></p>
-    <% } else { %>
-      <p class="log"><a href="/auth/logout">Logout</a>
-      <a href="/profile">Profile</a></p>
-    <% } %>
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">iGottaGo</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/restaurants">Restaurant Directory</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if (!currentUser) {%>
+            <li><a href="/auth/signup"><span class="glyphicon glyphicon-plus-sign"></span> Sign up</a></li>
+            <li><a href="/auth/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <% } else { %>
+            <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="/auth/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+  </header>
+   
 
     <div class="container">
       <%- body %>
