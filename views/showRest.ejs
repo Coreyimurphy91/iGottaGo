@@ -9,7 +9,7 @@
                 <h3>Genre: </h3>
                 <p> <%= restaurant.type %> </p>
                 <h3>Hours: </h3>
-                 <% if(restaurant.hours != null) { %> 
+                 <% if(restaurant.hours !== null) { %> 
                     <%= restaurant.hours %> 
                     <% } else { %> 
                     <p>Hours not posted.</p>
@@ -17,9 +17,12 @@
                 <h3>Address: </h3>
                 <p><%= restaurant.address %> </p>    
                 <h3>Location: </h3>
-               
                  <%= restaurant.longitude %>
                  <%= restaurant.latitude %>
+                <!-- <% if(restaurant.imgURL !== '') { %>
+                 <h3>Image</h3>
+                 <img src="<%= restaurant.imgURL %>" alt="<%= restaurant.name%>">
+                <% } %> -->
             </div>
         </div>
     </div>
@@ -32,7 +35,7 @@
         <input name="name" class="form-control" width="40%" type="text" placeholder="Reviewer's name">
         </div>
     </br>
-        <input name="clealiness" class="form-control" type="text" placeholder="Describe the restaurant's restroom's cleanliness">
+        <input name="cleanliness" class="form-control" type="text" placeholder="Describe the restaurant's restroom's cleanliness">
     </br>
         <input name="features" class="form-control" type="text" placeholder="Any notable features in the restroom?">
     </br>
@@ -63,8 +66,8 @@
 
   <div class="row">
     <div class="well">
-      <% if(Array.isArray(restaurant.reviews) && restaurant.reviews.length > 0) { %>
-        <% restaurant.reviews.forEach((review) => { %>
+      <% if(Array.isArray(restaurant.Reviews) && restaurant.Reviews.length > 0) { %>
+        <% restaurant.Reviews.forEach((review) => { %>
           <div class="panel panel-info">
             <div class="panel-heading">
               <%= review.name %>
@@ -75,7 +78,7 @@
               <%= review.comfort %>
             </div>
             <div class="panel-footer">
-              <b>posted at:</b> <%= review.updatedAt %>
+              <b>submitted:</b> <%= review.updatedAt %>
             </div>
           </div>
         <% }) %>

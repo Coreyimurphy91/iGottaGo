@@ -4,6 +4,10 @@ nav ul li {
   margin-right: .3em;
 }
 
+body {
+  background-color: rgb(202, 216, 240);
+}
+
 h1 {
   color: rgb(87, 149, 255);
   font-size: 6em;

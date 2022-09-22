@@ -1,9 +1,15 @@
-<form class="search" action="/search" method="POST">
+<h1>Search restaurants in your area</h1>
+
+<form class="searchZip" action="/search" method="POST">
     <label for="areaSearch">Search by Zip-Code</label>
-    <input id="areaSearch" type="text" name="zip" required>
+    <input id="areaSearch" type="text" name="zipSearch" required>
 
     <input type="submit" value="Start Looking">
 </form>
 
+<form class="searchName" action="/search" method="POST">
+    <label for="nameSearch">Search by Name</label>
+    <input id="nameSearch" type="text" name="nameSearch" required>
 
-<h1>Restaurants in your area</h1>
+    <input type="submit" value="Start Looking">
+</form>

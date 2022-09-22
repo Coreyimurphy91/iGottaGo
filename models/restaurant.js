@@ -19,8 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     latitude: DataTypes.STRING,
     type: DataTypes.STRING,
     address: DataTypes.STRING,
-    hours: DataTypes.STRING,
-    imageURL: DataTypes.STRING
+    hours: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Restaurant',

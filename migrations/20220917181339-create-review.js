@@ -20,6 +20,9 @@ module.exports = {
       comfort: {
         type: Sequelize.INTEGER
       },
+      imageURL: {
+        type: Sequelize.STRING
+      },
       UserId: {
         type: Sequelize.INTEGER
       },

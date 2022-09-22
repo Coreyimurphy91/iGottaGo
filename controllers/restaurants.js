@@ -4,8 +4,9 @@ const axios = require("axios");
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const isLoggedIn = require('../middleware/isLoggedIn')
 
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
     db.Restaurant.findAll()
     .then(restaurants => {
         res.render('restaurants', { restaurants })
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
     })
 });
 
-router.post('/', (req, res) => {
+router.post('/', isLoggedIn, (req, res) => {
   const createdDate = new Date().toDateString();
   db.restaurant.create({
     name: req.body.name,
@@ -27,6 +28,7 @@ router.post('/', (req, res) => {
     type: req.body.type,
     address: req.body.address,
     hours: req.body.hours,
+    imageURL: req.body.imageURL,
     updatedAt: createdDate,
     createdAt: createdDate
   })
@@ -38,14 +40,14 @@ router.post('/', (req, res) => {
   })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', isLoggedIn, (req, res) => {
     db.Restaurant.findOne({
         where: { id: req.params.id },
-        // include: [db.name, db.review] 
+        include: [db.Review] 
       })
       .then((restaurant) => {
         if (!restaurant) throw Error()
-        console.log(restaurant.name)
+        console.log(restaurant.imageURL)
         res.render('showRest', { restaurant: restaurant })
       })
       .catch((error) => {
@@ -54,7 +56,7 @@ router.get('/:id', (req, res) => {
       })
 });
 
-router.post('/:id/review', (req, res) => {
+router.post('/:id/review', isLoggedIn, (req, res) => {
     const createdDate = new Date().toISOString();
     db.Restaurant.findOne({
       where: { id: req.params.id }
@@ -63,9 +65,10 @@ router.post('/:id/review', (req, res) => {
       if (!restaurant) throw Error()
       console.log(req.body)
       db.Review.create({
-        restaurantId: parseInt(req.params.id),
+        RestaurantId: parseInt(req.params.id),
+        UserId: req.user.id,
         name: req.body.name,
-        cleanlieness: req.body.cleanlieness,
+        cleanliness: req.body.cleanliness,
         features: req.body.features,
         comfort: parseInt(req.body.comfort),
         createdAt: createdDate,
@@ -79,5 +82,5 @@ router.post('/:id/review', (req, res) => {
       res.status(400).render('404')
     })
   })
-
+  
 module.exports = router;
