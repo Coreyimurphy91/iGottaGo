@@ -70,6 +70,7 @@ router.post('/:id/review', isLoggedIn, (req, res) => {
         name: req.body.name,
         cleanliness: req.body.cleanliness,
         features: req.body.features,
+        imageURL: req.body.imageURL,
         comfort: parseInt(req.body.comfort),
         createdAt: createdDate,
         updatedAt: createdDate

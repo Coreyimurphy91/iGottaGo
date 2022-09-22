@@ -39,6 +39,8 @@
     </br>
         <input name="features" class="form-control" type="text" placeholder="Any notable features in the restroom?">
     </br>
+        <input name="imageURL" class="form-control" type="text" placeholder="Place your image URL here to share!">
+    </br>
         <div>
             <h3 class="sameLine">Comfort</h3>
             <p class="sameLine">(1 : Do not recommend - 5 : Highly recommend)</p>
@@ -76,6 +78,7 @@
               <%= review.cleanliness %>
               <%= review.features %>
               <%= review.comfort %>
+              <img src="<%= review.imageURL %>" width="400px" height="auto">
             </div>
             <div class="panel-footer">
               <b>submitted:</b> <%= review.updatedAt %>
