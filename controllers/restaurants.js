@@ -19,11 +19,12 @@ router.get('/', isLoggedIn, (req, res) => {
     })
 });
 
-router.post('/', isLoggedIn, (req, res) => {
+router.post('/', isLoggedIn, async (req, res) => {
+  console.log('-----------', req.body)
   const createdDate = new Date().toDateString();
-  db.restaurant.create({
+  const newRestaurant = await db.Restaurant.create({
     name: req.body.name,
-    longitude: req.body.longitude, //can i omit these two?
+    longitude: req.body.longitude,
     latitude: req.body.latitude,
     type: req.body.type,
     address: req.body.address,
@@ -31,13 +32,27 @@ router.post('/', isLoggedIn, (req, res) => {
     imageURL: req.body.imageURL,
     updatedAt: createdDate,
     createdAt: createdDate
-  })
-  .then((post) => {
-    res.redirect('/restaurants')
-  })
-  .catch((error) => {
-    res.status(400).render('main/404')
-  })
+  });
+  console.log(newRestaurant.toJSON());
+  res.redirect(`/restaurants/${newRestaurant.id}`);
+  // const createdDate = new Date().toDateString();
+  // db.restaurant.create({
+  //   name: req.body.name,
+  //   longitude: req.body.longitude, //can i omit these two?
+  //   latitude: req.body.latitude,
+    // type: req.body.type,
+    // address: req.body.address,
+    // hours: req.body.hours,
+    // imageURL: req.body.imageURL,
+    // updatedAt: createdDate,
+    // createdAt: createdDate
+  // })
+  // .then((post) => {
+  //   res.redirect('/restaurants')
+  // })
+  // .catch((error) => {
+  //   res.status(400).render('main/404')
+  // })
 })
 
 router.get('/:id', isLoggedIn, (req, res) => {

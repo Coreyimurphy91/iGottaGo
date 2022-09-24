@@ -1,11 +1,22 @@
 <h1>Restaurants in your area</h1>
 
-<% for( let index = 0; index < restaurants.length; index++ ) { %>
-    <% let restaurant = restaurants[index] %> 
-    <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.cuisine %></td>
-        <td><%= restaurant.rating %></td>
-    </tr>
+<% for( let i = 0; i < restaurant.length; i++ ) { %>
+    <% let restaur = restaurant[i] %> 
+    
+        <h2><%= restaur.name %></h2>
+        <h2><%= restaur.heading_text %></h2>
+        <h2><%= restaur.address %>, <%= restaur.city %>, <%= restaur.state %> <%= restaur.zip %></h2>
+        <h2><%= restaur.description?.op_hours %></h2>
+        <form method="POST" action="/restaurants">
+            <input type="text" value="<%= restaur.name %>" name="name" hidden>
+            <input type="text" value="<%= restaur.longitude %>" name="longitude" hidden>
+            <input type="text" value="<%= restaur.latitude %>" name="latitude" hidden>
+            <input type="text" value="<%= restaur.heading_text %>" name="type" hidden>
+            <input type="text" value="<%= restaur.address %>, <%= restaur.city %>, <%= restaur.state %> <%= restaur.zip %>" name="address" hidden>
+            <input type="text" value="<%= restaur.description?.op_hours %>" name="hours" hidden>
+            <button type="submit">Add Restaurant</button>
+        </form>
+        <br>
+        <br>
 <% } %>
+
