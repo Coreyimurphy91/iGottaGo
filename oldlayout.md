@@ -28,7 +28,6 @@
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/restaurants">Restaurant Directory</a></li>
-          <li><a href="/search">Search</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if (!currentUser) {%>

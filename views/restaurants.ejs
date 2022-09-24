@@ -1,31 +1,32 @@
-<div class="row">
-    <div class="well">
-      <% if(Array.isArray(restaurants) && restaurants.length > 0) { %>
-        <% restaurants.forEach((restaurant) => { %>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3><a href="/restaurants/<%= restaurant.id %> "><%= restaurant.name %></a></h3>
-            </div>
-            <div class="panel-body">
-              <p> <%= restaurant.name %> is located at <%= restaurant.address %>.</p>
-              <p>Genre: <%= restaurant.type %></p>
-              <% if(restaurant.hours != null) { %> 
-                <p> Business hours are <%= restaurant.hours %>. </p>
-                <% } else { %> 
-                <p>Business hours are not posted.</p>
-                <% } %></p>
-            </div>
-            <div class="panel-footer">
-              <b>posted at:</b> <%= restaurant.updatedAt %>
+
+    <div class="px-4 py-5 my-5 text-center">
+      <br>
+      <br>
+      <% if(Array.isArray(restaurants) && restaurants.length> 0) { %>
+        <% restaurants.forEach((restaurant)=> { %>
+          <h1 class="display-5 fw-bold">
+            <%= restaurant.name %>
+          </h1>
+          <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4"> Address: <%= restaurant.address %>.<% if(restaurant.hours !=null) { %> </p>
+                  <p class="lead mb-4"> Business hours are <%= restaurant.hours %>. </p>
+                  <% } else { %>
+                    <p class="lead mb-4">Business hours are not posted.</p>
+                    <% } %>
+            
+                  
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+              <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a
+                  href="/restaurants/<%= restaurant.id %> " style="text-decoration: none; color:white;">View
+                  Restaurant</a></button>
+              <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="#top"
+                  style="text-decoration: none; color: rgb(44, 123, 233);">Back to top</a></button>
+              <hr>
+
             </div>
           </div>
-        <% }) %>
-      <% } else { %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            No Restaurants...
-          </div>
-        </div>
-      <% } %>
+          <br>
+          <br>
+          <% })} %>
+
     </div>
-  </div> 

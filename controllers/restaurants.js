@@ -4,7 +4,7 @@ const axios = require("axios");
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const isLoggedIn = require('../middleware/isLoggedIn')
+const isLoggedIn = require('../middleware/isLoggedIn');
 
 router.get('/', isLoggedIn, (req, res) => {
     db.Restaurant.findAll()
@@ -19,8 +19,20 @@ router.get('/', isLoggedIn, (req, res) => {
     })
 });
 
+router.get('/:id/review/:reviewid/edit', isLoggedIn, async (req, res) => {
+  const edit = await db.Restaurant.findOne({ 
+    where: {id: req.params.id}
+})
+res.render('updateReview', {});
+})
+
 router.post('/', isLoggedIn, async (req, res) => {
   console.log('-----------', req.body)
+  const isOne = await db.Restaurant.findOne({
+     where: {name: req.body.name, address: req.body.address } })
+  if(isOne) {
+    res.redirect(`already`)
+  } else {
   const createdDate = new Date().toDateString();
   const newRestaurant = await db.Restaurant.create({
     name: req.body.name,
@@ -35,25 +47,7 @@ router.post('/', isLoggedIn, async (req, res) => {
   });
   console.log(newRestaurant.toJSON());
   res.redirect(`/restaurants/${newRestaurant.id}`);
-  // const createdDate = new Date().toDateString();
-  // db.restaurant.create({
-  //   name: req.body.name,
-  //   longitude: req.body.longitude, //can i omit these two?
-  //   latitude: req.body.latitude,
-    // type: req.body.type,
-    // address: req.body.address,
-    // hours: req.body.hours,
-    // imageURL: req.body.imageURL,
-    // updatedAt: createdDate,
-    // createdAt: createdDate
-  // })
-  // .then((post) => {
-  //   res.redirect('/restaurants')
-  // })
-  // .catch((error) => {
-  //   res.status(400).render('main/404')
-  // })
-})
+}})
 
 router.get('/:id', isLoggedIn, (req, res) => {
     db.Restaurant.findOne({
@@ -63,7 +57,7 @@ router.get('/:id', isLoggedIn, (req, res) => {
       .then((restaurant) => {
         if (!restaurant) throw Error()
         console.log(restaurant.imageURL)
-        res.render('showRest', { restaurant: restaurant })
+        res.render('showRest', { restaurant: restaurant, root: req.get('host') })
       })
       .catch((error) => {
         console.log(error)
@@ -99,4 +93,49 @@ router.post('/:id/review', isLoggedIn, (req, res) => {
     })
   })
   
+router.delete('/:id/review/:reviewid', async (req, res) => {
+  // get review and remove
+
+  let reviewDeleted = await db.Review.destroy({
+    where: { id: req.params.reviewid }
+  });
+  console.log('----DELETE ROUTE------');
+  console.log('amount of songs deleted', reviewDeleted);
+  // direct user back to page
+  res.redirect(`/restaurants/${req.params.id}`);
+
+});
+
+router.post('/:id/review/:reviewid', async (req, res) => {
+  // get review and edit
+
+  let reviewUpdated = await db.Review.update({
+    where: { id: req.params.reviewid },
+    include: [ db.Restaurant ]
+  })
+  .then((restaurant) => {
+    if (!restaurant) throw Error()
+    console.log(req.body)
+    db.Review.update({
+      RestaurantId: parseInt(req.params.id),
+      UserId: req.user.id,
+      name: req.body.name,
+      cleanliness: req.body.cleanliness,
+      features: req.body.features,
+      imageURL: req.body.imageURL,
+      comfort: parseInt(req.body.comfort),
+      createdAt: createdDate,
+      updatedAt: createdDate
+    }).then(review => {
+      res.redirect(`/restaurants/${req.params.id}`);
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+    res.status(400).render('404')
+  })
+  res.redirect(`/restaurants/${req.params.id}`);
+
+});
+
 module.exports = router;

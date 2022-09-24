@@ -1,0 +1,43 @@
+
+<div class="well">
+    <h2>Update your review of <%= restaurant.name %>'s restrooms: </h2>
+    <form method="POST" action="/restaurants/<%= restaurant.id%>/review">
+        <div class="input-group mb-3 w-25">
+        <input name="name" class="form-control" width="40%" type="text" placeholder="Reviewer's name" required>
+        </div>
+    </br>
+        <input name="cleanliness" class="form-control" type="text" placeholder="Describe the restaurant's restroom's cleanliness" required>
+    </br>
+        <input name="features" class="form-control" type="text" placeholder="Any notable features in the restroom?" required>
+    </br>
+        <input name="imageURL" class="form-control" type="text" placeholder="Place your image URL here to share!">
+    </br>
+        <div>
+            <h3 class="sameLine">Comfort</h3>
+            <p class="sameLine">(1 : Do not recommend - 5 : Highly recommend)</p>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option1" value="1"> 1
+            </label>
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option2" value="2"> 2
+            </label>
+            <label class="btn btn-warning active">
+              <input type="radio" name="comfort" id="option3" value="3" checked> 3
+            </label>
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option3" value="4"> 4
+            </label>
+            <label class="btn btn-warning">
+              <input type="radio" name="comfort" id="option3" value="5"> 5
+            </label>
+          </div>
+          <button class="btn btn-info" type="submit">Submit New Review</button>
+    </form>
+  </div>
+
+  <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>?_method=PUT">
+    <button type="submit" value="Edit">Edit review</button>
+  </form>
+  
