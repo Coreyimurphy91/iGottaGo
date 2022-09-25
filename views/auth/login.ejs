@@ -1,12 +1,41 @@
-<body class="text-center">
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email" required>
-  
+<!-- <form action="/auth/login" method="POST">
+    <label for="auth-email">Email</label>
+    <input id="auth-email" type="email" name="email" required>
+
     <label for="auth-password">Password</label>
     <input id="auth-password" type="password" name="password" required>
 
     <input type="submit" value="Log In">
-</form>
-</body>
+</form> -->
+  
+  <br>
+  <br>
+  <body class="text-center">
+    <h5>New? Click <a href="/auth/signup">here</a> to sing up!</h5>
+    <main class=" m-auto">
+      <form action="/auth/login" method="POST">
+        <img class="mb-4" src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+<br>
+        <div class="form-floating">
+          <input type="email" class="form-control text-center" id="floatingInput" name="email" placeholder="name@example.com" style="max-width: 200px; display: inline-block">
+          <br>
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control text-center" id="floatingPassword" name="password"placeholder="Password" style="max-width: 200px; display: inline-block">
+          <br>
+          <label for="floatingPassword">Password</label>
+        </div>
 
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+      </form>
+    </main>
+  </body>
+</html>

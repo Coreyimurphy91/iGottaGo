@@ -34,21 +34,24 @@
   <br>
   <body class="text-center">
     <h5>Already a member? Click <a href="/auth/login">here</a> to sing in!</h5>
-    <main class="form-signin w-25 m-auto">
+    <main class="m-auto">
       <form action="/auth/signup" method="POST">
         <img class="mb-4" src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
         <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" name="name" placeholder="John Smith" required>
+            <input type="text" class="form-control text-center" id="floatingInput" name="name" placeholder="John Smith" style="max-width: 200px; display: inline-block" required>
+            <br>
             <label for="floatingInput">Name</label>
         </div>
         <div class="form-floating">
-          <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
+          <input type="email" class="form-control text-center" id="floatingInput" name="email" placeholder="name@example.com" style="max-width: 200px; display: inline-block" required>
+          <br>
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" name="password"placeholder="Password" required>
+          <input type="password" class="form-control text-center" id="floatingPassword" name="password"placeholder="Password" style="max-width: 200px; display: inline-block" required>
+          <br>
           <label for="floatingPassword">Password</label>
         </div>
 

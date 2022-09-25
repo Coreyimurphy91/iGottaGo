@@ -97,7 +97,7 @@
               <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>?_method=DELETE">
                 <button type="submit" value="Delete">Remove review</button>
               </form>
-              <form action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>/edit">
+              <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>/edit">
                 <input type="submit" value="Edit review" />
               </form>
 

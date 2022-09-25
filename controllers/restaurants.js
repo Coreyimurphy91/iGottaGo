@@ -106,7 +106,7 @@ router.delete('/:id/review/:reviewid', async (req, res) => {
 
 });
 
-router.post('/:id/review/:reviewid', async (req, res) => {
+router.put('/:id/review/:reviewid', async (req, res) => {
   // get review and edit
 
   let reviewUpdated = await db.Review.update({

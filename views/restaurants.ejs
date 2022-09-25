@@ -4,6 +4,8 @@
       <br>
       <% if(Array.isArray(restaurants) && restaurants.length> 0) { %>
         <% restaurants.forEach((restaurant)=> { %>
+          <div class="well"  style="background-color: rgb(113, 113, 113); border-radius: 20px; min-height: 350px;">
+          <div class="well"  style="background-color: rgb(224, 224, 224); border-radius: 20px; min-height: 350px;">
           <h1 class="display-5 fw-bold">
             <%= restaurant.name %>
           </h1>
@@ -13,8 +15,10 @@
                   <% } else { %>
                     <p class="lead mb-4">Business hours are not posted.</p>
                     <% } %>
-            
-                  
+                  </div>
+                
+                  <br>
+                  <br>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
               <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a
                   href="/restaurants/<%= restaurant.id %> " style="text-decoration: none; color:white;">View
@@ -25,8 +29,9 @@
 
             </div>
           </div>
+        </div>
           <br>
           <br>
           <% })} %>
 
-    </div>
+    
