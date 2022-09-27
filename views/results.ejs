@@ -2,11 +2,12 @@
 
 <% for( let i = 0; i < restaurant.length; i++ ) { %>
     <% let restaur = restaurant[i] %> 
-    
-        <h2><%= restaur.name %></h2>
-        <h2><%= restaur.heading_text %></h2>
-        <h2><%= restaur.address %>, <%= restaur.city %>, <%= restaur.state %> <%= restaur.zip %></h2>
-        <h2><%= restaur.description?.op_hours %></h2>
+    <div class="well well2">
+     <div class="well well3">
+        <h1><%= restaur.name %></h1>
+        <h2 class="teko">Genre: <h2><%= restaur.heading_text %></h2></h2>
+        <h2 class="teko"><%= restaur.name %> is located at: <h2><%= restaur.address %>, <%= restaur.city %>, <%= restaur.state %> <%= restaur.zip %></h2></h2>
+        <h2 class="teko">Hours of operation are: <h2><%= restaur.description?.op_hours %></h2></h2>
         <form method="POST" action="/restaurants">
             <input type="text" value="<%= restaur.name %>" name="name" hidden>
             <input type="text" value="<%= restaur.longitude %>" name="longitude" hidden>
@@ -14,10 +15,12 @@
             <input type="text" value="<%= restaur.heading_text %>" name="type" hidden>
             <input type="text" value="<%= restaur.address %>, <%= restaur.city %>, <%= restaur.state %> <%= restaur.zip %>" name="address" hidden>
             <input type="text" value="<%= restaur.description?.op_hours %>" name="hours" hidden>
-            <button type="submit">Add Restaurant to Database</button>
+            <button type="submit" class="btn btn-default btn-lg tekoH">Add Restaurant to Database <span class="glyphicon glyphicon-plus"></span></button>
         </form>
-        <br>
-        <br>
+<br>
+<br>
+     </div>
+    </div>
 <% } %>
 
 

@@ -1,45 +1,46 @@
-
-<div class="well"  style="background-color: rgb(113, 113, 113); border-radius: 20px; min-height: 350px;">
-  <div class="well"  style="background-color: rgb(224, 224, 224); border-radius: 20px; min-height: 350px;">
+<div class="well" style="background-color: rgb(113, 113, 113); border-radius: 20px; min-height: 350px;">
+  <div class="well" style="background-color: rgb(224, 224, 224); border-radius: 20px; min-height: 350px;">
     <div class="panel panel-info">
       <div class="panel-heading">
-        <h3 class="teko"><%= review.name %></h3>
+        <h3 class="teko">
+          <%= review.name %>
+        </h3>
       </div>
     </div>
     <h2>Update your review of <%= restaurant.name %>'s restrooms: </h2>
     <form method="POST" action="/restaurants/<%= restaurant.id%>/review/<%= review.id %>?_method=PUT">
-    </br>
-    <h3 class="teko">Cleanliness Opinions:</h3>
-        <input name="cleanliness" class="form-control" type="text" value="<%= review.cleanliness %> " required>
-    </br>
-    <h3 class="teko">Notable Features:</h3>
-        <input name="features" class="form-control" type="text" value="<%= review.features %> " required>
-    </br>
-    <h3 class="teko">Image URL to share:</h3>
-        <input name="imageURL" class="form-control" type="text" value="<%= review.imageURL %>">
-    </br>
-        <div>
-            <h3 class="sameLine teko">Overall Comfort</h3>
-            <p class="sameLine">(1 : Do not recommend - 5 : Highly recommend)</p>
-        </div>
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-warning">
-              <input type="radio" name="comfort" id="option1" value="1"> 1
-            </label>
-            <label class="btn btn-warning">
-              <input type="radio" name="comfort" id="option2" value="2"> 2
-            </label>
-            <label class="btn btn-warning active">
-              <input type="radio" name="comfort" id="option3" value="3" checked> 3
-            </label>
-            <label class="btn btn-warning">
-              <input type="radio" name="comfort" id="option3" value="4"> 4
-            </label>
-            <label class="btn btn-warning">
-              <input type="radio" name="comfort" id="option3" value="5"> 5
-            </label>
-          </div>
-          <button class="btn btn-info" type="submit">Submit Eddited Review</button>
+      </br>
+      <h3 class="teko">Cleanliness Opinions:</h3>
+      <input name="cleanliness" class="form-control" type="text" value="<%= review.cleanliness %> " required>
+      </br>
+      <h3 class="teko">Notable Features:</h3>
+      <input name="features" class="form-control" type="text" value="<%= review.features %> " required>
+      </br>
+      <h3 class="teko">Image URL to share:</h3>
+      <input name="imageURL" class="form-control" type="text" value="<%= review.imageURL %>">
+      </br>
+      <div>
+        <h3 class="sameLine teko">Overall Comfort</h3>
+        <p class="sameLine">(1 : Do not recommend - 5 : Highly recommend)</p>
+      </div>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-warning">
+          <input type="radio" name="comfort" id="option1" value="1"> 1
+        </label>
+        <label class="btn btn-warning">
+          <input type="radio" name="comfort" id="option2" value="2"> 2
+        </label>
+        <label class="btn btn-warning active">
+          <input type="radio" name="comfort" id="option3" value="3" checked> 3
+        </label>
+        <label class="btn btn-warning">
+          <input type="radio" name="comfort" id="option3" value="4"> 4
+        </label>
+        <label class="btn btn-warning">
+          <input type="radio" name="comfort" id="option3" value="5"> 5
+        </label>
+      </div>
+      <button class="btn btn-info" type="submit">Submit Eddited Review</button>
     </form>
   </div>
 </div>

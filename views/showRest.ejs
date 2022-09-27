@@ -19,10 +19,6 @@
                 <h2 class="teko">Location: </h2>
                  <%= restaurant.longitude %>
                  <%= restaurant.latitude %>
-                <!-- <% if(restaurant.imgURL !== '') { %>
-                 <h3>Image</h3>
-                 <img src="<%= restaurant.imgURL %>" alt="<%= restaurant.name%>">
-                <% } %> -->
             </div>
     </div>
     </div>
@@ -65,10 +61,10 @@
           <div class="panel-footer" style="background-color: #d9edf7">
 
             <form method="GET" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>/edit">
-              <input type="submit" value="Edit review" />
+              <input type="submit" class="btn btn-default btn-lg purpose tekoH" value="Edit review" style="margin-top:5px;">
             </form>
             <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>?_method=DELETE">
-              <button type="submit" value="Delete">Remove review</button>
+              <button type="submit" class="btn btn-default btn-lg purpose tekoH" value="Delete" style="margin-top:5px;">Remove review</button>
             </br>
               <b>submitted:</b> <%= review.updatedAt %>
             </form>
@@ -122,7 +118,7 @@
               <input type="radio" name="comfort" id="option3" value="5"> 5
             </label>
           </div>
-          <button class="btn btn-info" type="submit">Submit New Review</button>
+          <button class="btn btn-default btn-lg purpose tekoH" type="submit" style="margin-top:0;">Submit New Review</button>
     </form>
   </div>
   </div>

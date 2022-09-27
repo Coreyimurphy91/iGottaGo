@@ -1,31 +1,30 @@
 <h1>Search restaurants in your area</h1>
-
+<br>
+<br>
 <div class="well well2" style="min-height: 100px;">
     <div class="well well3" style="min-height: 50px;">
-<form class="searchRest text-center" action="/search/results" method="GET">
-    <h3 class="sameLine">Search by city or state</h3>
-    <input class="text-center btn-sm" id="areaSearch" type="text" name="yplocation" placeholder="Los Angeles" required>
-    <h3 class="sameLine"><strong><em><u>and</u></em></strong> restaurant name</h3>
-    <input class="text-center btn-sm" id="nameSearch" type="text" name="ypkeyword" placeholder="In-n-Out" ><strong>.</strong>
-    
+        <form class="searchRest text-center" action="/search/results" method="GET">
+            <h3 class="sameLine">Search by city, state, or zip-code</h3>
+            <input class="text-center btn-sm" id="areaSearch" type="text" name="yplocation" placeholder="Los Angeles" required>
+            <h3 class="sameLine"><strong><em><u>and</u></em></strong> restaurant name</h3>
+            <input class="text-center btn-sm" id="nameSearch" type="text" name="ypkeyword" placeholder="In-n-Out" ><strong>.</strong> 
 <br>
 <br>
-    <!-- <input type="submit" value="Start Looking"> -->
-    <div class="container-fluid bg-2 text-center">
-        <button type="submit" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Search</button>
+            <div class="container-fluid bg-2 text-center">
+            <button type="submit" class="btn btn-default btn-lg tekoH"><span class="glyphicon glyphicon-search"></span> Search</button>
+            </div>
+        </form>
     </div>
-</form>
-</div>
 </div>
 <br>
-<br>
+<h3 class="teko text-center">(or)</h3>
 <br>
 <br>
 <div class="well well2" style="min-height: 100px;">
     <div class="well well3" style="min-height: 50px;">
-<h3 class="text-center">Or, look at our current directory of restaurants:</h3>
-<div class="container-fluid bg-2 text-center">
-<a href="/restaurants" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span> Browse Database</a>
-</div>
-</div>
+        <h3 class="text-center">Have a look at our current directory of restaurants:</h3>
+        <div class="container-fluid bg-2 text-center">
+            <a href="/restaurants" class="btn btn-default btn-lg tekoH"><span class="glyphicon glyphicon-search"></span> Browse Database</a>
+        </div>
+    </div>
 </div>
