@@ -22,8 +22,12 @@ nav ul li {
   border-color: white;
 }
 
+.ahover {
+  border-color: #ccc ;
+}
+
 .ahover:hover {
-  background-color: rgb(113, 113, 113);
+  background-color: rgb(224, 224, 224);
 }
 
 .well3 {
