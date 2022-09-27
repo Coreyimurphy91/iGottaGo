@@ -1,19 +1,25 @@
 
-<div class="well">
+<div class="well"  style="background-color: rgb(113, 113, 113); border-radius: 20px; min-height: 350px;">
+  <div class="well"  style="background-color: rgb(224, 224, 224); border-radius: 20px; min-height: 350px;">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="teko"><%= review.name %></h3>
+      </div>
+    </div>
     <h2>Update your review of <%= restaurant.name %>'s restrooms: </h2>
-    <form method="POST" action="/restaurants/<%= restaurant.id%>/review">
-        <div class="input-group mb-3 w-25">
-        <input name="name" class="form-control" width="40%" type="text" placeholder="Reviewer's name" required>
-        </div>
+    <form method="POST" action="/restaurants/<%= restaurant.id%>/review/<%= review.id %>?_method=PUT">
     </br>
-        <input name="cleanliness" class="form-control" type="text" placeholder="Describe the restaurant's restroom's cleanliness" required>
+    <h3 class="teko">Cleanliness Opinions:</h3>
+        <input name="cleanliness" class="form-control" type="text" value="<%= review.cleanliness %> " required>
     </br>
-        <input name="features" class="form-control" type="text" placeholder="Any notable features in the restroom?" required>
+    <h3 class="teko">Notable Features:</h3>
+        <input name="features" class="form-control" type="text" value="<%= review.features %> " required>
     </br>
-        <input name="imageURL" class="form-control" type="text" placeholder="Place your image URL here to share!">
+    <h3 class="teko">Image URL to share:</h3>
+        <input name="imageURL" class="form-control" type="text" value="<%= review.imageURL %>">
     </br>
         <div>
-            <h3 class="sameLine">Comfort</h3>
+            <h3 class="sameLine teko">Overall Comfort</h3>
             <p class="sameLine">(1 : Do not recommend - 5 : Highly recommend)</p>
         </div>
         <div class="btn-group" data-toggle="buttons">
@@ -33,11 +39,7 @@
               <input type="radio" name="comfort" id="option3" value="5"> 5
             </label>
           </div>
-          <button class="btn btn-info" type="submit">Submit New Review</button>
+          <button class="btn btn-info" type="submit">Submit Eddited Review</button>
     </form>
   </div>
-
-  <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>?_method=PUT">
-    <button type="submit" value="Edit">Edit review</button>
-  </form>
-  
+</div>

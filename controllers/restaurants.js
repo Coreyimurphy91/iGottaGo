@@ -20,10 +20,15 @@ router.get('/', isLoggedIn, (req, res) => {
 });
 
 router.get('/:id/review/:reviewid/edit', isLoggedIn, async (req, res) => {
-  const edit = await db.Restaurant.findOne({ 
-    where: {id: req.params.id}
-})
-res.render('updateReview', {});
+  db.Review.findOne( {where: { id: req.params.reviewid },
+    include: [db.Restaurant]})
+    .then(review => {
+      const restaurant = review.Restaurant
+      res.render('updateReview', {review, restaurant});
+    })
+    .catch(error => {
+      console.log(error)
+    })
 })
 
 router.post('/', isLoggedIn, async (req, res) => {
@@ -106,36 +111,30 @@ router.delete('/:id/review/:reviewid', async (req, res) => {
 
 });
 
-router.put('/:id/review/:reviewid', async (req, res) => {
+router.put('/:id/review/:reviewid', (req, res) => {
   // get review and edit
-
-  let reviewUpdated = await db.Review.update({
+  const updatedDate = new Date().toISOString();
+  db.Review.update({
+    UserId: req.user.id,
+    name: req.body.name,
+    cleanliness: req.body.cleanliness,
+    features: req.body.features,
+    imageURL: req.body.imageURL,
+    comfort: parseInt(req.body.comfort),
+    updatedAt: updatedDate
+  },{
     where: { id: req.params.reviewid },
     include: [ db.Restaurant ]
   })
   .then((restaurant) => {
     if (!restaurant) throw Error()
     console.log(req.body)
-    db.Review.update({
-      RestaurantId: parseInt(req.params.id),
-      UserId: req.user.id,
-      name: req.body.name,
-      cleanliness: req.body.cleanliness,
-      features: req.body.features,
-      imageURL: req.body.imageURL,
-      comfort: parseInt(req.body.comfort),
-      createdAt: createdDate,
-      updatedAt: createdDate
-    }).then(review => {
-      res.redirect(`/restaurants/${req.params.id}`);
-    })
+    res.redirect(`/restaurants/${req.params.id}`);
   })
   .catch((error) => {
     console.log(error)
     res.status(400).render('404')
   })
-  res.redirect(`/restaurants/${req.params.id}`);
-
 });
 
 module.exports = router;

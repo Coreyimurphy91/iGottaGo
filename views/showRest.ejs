@@ -3,20 +3,20 @@
 </h1>
 
 <div class="row">
-    <div class="well">
-        <div class="panel panel-info">
+  <div class="well well2">
+    <div class="well well3 panel panel-info">
             <div class="panel-body">
-                <h3>Genre: </h3>
+                <h2 class="teko">Genre: </h2>
                 <p> <%= restaurant.type %> </p>
-                <h3>Hours: </h3>
+                <h2 class="teko">Hours: </h2>
                  <% if(restaurant.hours !== null) { %> 
                     <%= restaurant.hours %> 
                     <% } else { %> 
                     <p>Hours not posted.</p>
                     <% } %>
-                <h3>Address: </h3>
+                <h2 class="teko">Address: </h2>
                 <p><%= restaurant.address %> </p>    
-                <h3>Location: </h3>
+                <h2 class="teko">Location: </h2>
                  <%= restaurant.longitude %>
                  <%= restaurant.latitude %>
                 <!-- <% if(restaurant.imgURL !== '') { %>
@@ -24,11 +24,71 @@
                  <img src="<%= restaurant.imgURL %>" alt="<%= restaurant.name%>">
                 <% } %> -->
             </div>
-        </div>
+    </div>
     </div>
 </div>
 
-<div class="well">
+<div class="row">
+  <div class="well well2" style="min-height: 50px;">
+    <div class="well well3 panel panel-info" style="min-height: 50px;">
+    <% if(Array.isArray(restaurant.Reviews) && restaurant.Reviews.length > 0) { %>
+      <% restaurant.Reviews.forEach((review) => { %>
+        <div class="panel panel-info" style="border: 0px">
+          <div class="panel-heading">
+            <h3 class="teko"><%= review.name %></h3>
+          </div>
+          <div class="panel-body" style="background-color: rgb(224, 224, 224);">
+            <h2 class="teko">Users' opinion on cleanliness:</h2>
+            <%= review.cleanliness %>
+            <h2 class="teko">Notable features:</h2>
+            <%= review.features %>
+            <div>
+            <% if(review.imageURL !== '') { %> 
+              <h2 class="teko">Image</h2>
+              <img src="<%= review.imageURL %>" width="400px" height="auto">
+              <% } %> 
+            </div>
+              <br>
+              <h2 class="teko">Overall Restroom Rating</h2>
+            <% if(review.comfort === 1 ) { %>
+              <img src="http://<%= root %>/images/1_5.png" alt="1 out of 5 stars" width="200px" height="auto">
+            <% } else if(review.comfort === 2) { %> 
+              <img src="http://<%= root %>/images/2_5.png" alt="2 out of 5 stars" width="200px" height="auto">
+            <% } else if(review.comfort === 3) { %> 
+              <img src="http://<%= root %>/images/3_5.png" alt="3 out of 5 stars" width="200px" height="auto">
+            <% } else if(review.comfort === 4) { %> 
+              <img src="http://<%= root %>/images/4_5.png" alt="4 out of 5 stars" width="200px" height="auto">
+            <% } else if(review.comfort === 5) { %> 
+              <img src="http://<%= root %>/images/5_5.png" alt="5 out of 5 stars" width="200px" height="auto">
+            <% } %> 
+          </div>
+          <div class="panel-footer" style="background-color: #d9edf7">
+
+            <form method="GET" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>/edit">
+              <input type="submit" value="Edit review" />
+            </form>
+            <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>?_method=DELETE">
+              <button type="submit" value="Delete">Remove review</button>
+            </br>
+              <b>submitted:</b> <%= review.updatedAt %>
+            </form>
+
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          No Reviews...
+        </div>
+      </div>
+    <% } %>
+  </div>
+</div>
+</div>
+
+<div class="well well2">
+  <div class="well well3 panel panel-info">
     <h2>Create a review of <%= restaurant.name %>'s restrooms: </h2>
     <form method="POST" action="/restaurants/<%= restaurant.id%>/review">
         <div class="input-group mb-3 w-25">
@@ -65,51 +125,4 @@
           <button class="btn btn-info" type="submit">Submit New Review</button>
     </form>
   </div>
-
-  <div class="row">
-    <div class="well">
-      <% if(Array.isArray(restaurant.Reviews) && restaurant.Reviews.length > 0) { %>
-        <% restaurant.Reviews.forEach((review) => { %>
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <%= review.name %>
-            </div>
-            <div class="panel-body">
-              <%= review.cleanliness %>
-              <%= review.features %>
-              <% if(review.comfort === 1 ) { %>
-                <img src="http://<%= root %>/images/1_5.png" alt="1 out of 5 stars" width="200px" height="auto">
-              <% } else if(review.comfort === 2) { %> 
-                <img src="http://<%= root %>/images/2_5.png" alt="2 out of 5 stars" width="200px" height="auto">
-              <% } else if(review.comfort === 3) { %> 
-                <img src="http://<%= root %>/images/3_5.png" alt="3 out of 5 stars" width="200px" height="auto">
-              <% } else if(review.comfort === 4) { %> 
-                <img src="http://<%= root %>/images/4_5.png" alt="4 out of 5 stars" width="200px" height="auto">
-              <% } else if(review.comfort === 5) { %> 
-                <img src="http://<%= root %>/images/5_5.png" alt="5 out of 5 stars" width="200px" height="auto">
-              <% } %> 
-              <% if(review.imageURL !== '') { %> 
-              <img src="<%= review.imageURL %>" width="400px" height="auto">
-              <% } %> 
-            </div>
-            <div class="panel-footer">
-              <b>submitted:</b> <%= review.updatedAt %>
-              <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>?_method=DELETE">
-                <button type="submit" value="Delete">Remove review</button>
-              </form>
-              <form method="POST" action="/restaurants/<%= restaurant.id %>/review/<%=review.id%>/edit">
-                <input type="submit" value="Edit review" />
-              </form>
-
-            </div>
-          </div>
-        <% }) %>
-      <% } else { %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            No Reviews...
-          </div>
-        </div>
-      <% } %>
-    </div>
-  </div> 
+  </div>

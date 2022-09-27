@@ -7,11 +7,48 @@ nav ul li {
   margin-right: .3em;
 }
 
+.alert {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+}
+
+.well2 {
+  background-color: rgb(113, 113, 113);
+  border-radius: 20px;
+  min-height: 350px;
+  border-width: 2px;
+  border-color: white;
+}
+
+.ahover:hover {
+  background-color: rgb(113, 113, 113);
+}
+
+.well3 {
+  background-color: rgb(224, 224, 224); 
+  border-radius: 20px; 
+  min-height: 350px; 
+  border-width: 2px;
+  border-color: black;
+}
+
 .navbar-brand {
   padding-top: 20%;
   font-family: 'Teko', sans-serif;
-  font-weight:700;
+  font-weight: 700;
   font-size: 20px;
+}
+
+.teko {
+  font-family: 'Teko', sans-serif;
+  font-weight: 300;
+}
+
+.tekoH {
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
 }
 
 body {

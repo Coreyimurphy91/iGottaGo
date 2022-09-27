@@ -1,11 +1,13 @@
-
+<h1>Restaurant Directory</h1>
+    <h3 class="teko text-center">Use [ctrl <small>(or)</small> cmd + f] to find one of our current restaurants.</h3>
+    
     <div class="px-4 py-5 my-5 text-center">
       <br>
       <br>
       <% if(Array.isArray(restaurants) && restaurants.length> 0) { %>
         <% restaurants.forEach((restaurant)=> { %>
-          <div class="well"  style="background-color: rgb(113, 113, 113); border-radius: 20px; min-height: 350px;">
-          <div class="well"  style="background-color: rgb(224, 224, 224); border-radius: 20px; min-height: 350px;">
+          <div class="well well2">
+          <div class="well well3">
           <h1 class="display-5 fw-bold">
             <%= restaurant.name %>
           </h1>
@@ -20,13 +22,14 @@
                   <br>
                   <br>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <button type="button" class="btn btn-primary btn-lg px-4 gap-3"><a
-                  href="/restaurants/<%= restaurant.id %> " style="text-decoration: none; color:white;">View
+              <button type="button" class="btn btn-dark btn-lg purpose ahover"><a
+                  href="/restaurants/<%= restaurant.id %>" style="text-decoration: none; color: black;">View
                   Restaurant</a></button>
-              <button type="button" class="btn btn-outline-secondary btn-lg px-4"><a href="#top"
-                  style="text-decoration: none; color: rgb(44, 123, 233);">Back to top</a></button>
-              <hr>
-
+              <button type="button" class="btn btn-dark btn-lg purpose ahover"><a href="#top"
+                  style="text-decoration: none; color: black">Back to top</a></button>
+              <br>
+              <br>
+              <br>
             </div>
           </div>
         </div>
