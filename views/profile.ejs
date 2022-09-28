@@ -1,7 +1,16 @@
 <div class="well"  style="background-color: rgb(113, 113, 113); border-radius: 20px; min-height: 350px; text-align:center;">
     <div class="well"  style="background-color: rgb(224, 224, 224); border-radius: 20px; min-height: 350px;">
         <h1><%= name %>'s page</h1>
-        <h3>You are the <%= id %>th user to join this website!</h3>
+        <% if(id === 1) { %> 
+            <h3>You are the <%= id %>st user to join this website!</h3>
+            <% } else if(id === 2) { %>
+            <h3>You are the <%= id %>nd user to join this website!</h3>
+            <% } else if(id === 3) { %>
+            <h3>You are the <%= id %>rd user to join this website!</h3>
+            <% } else { %>
+            <h3>You are the <%= id %>th user to join this website!</h3>
+            <% } %> 
+        
 <h3>Email: <%= email %></h3>
 </div>
 </div>
