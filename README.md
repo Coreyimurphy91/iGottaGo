@@ -13,7 +13,7 @@ This project's intention was to allow myself(student) to create an app with cert
 - Site has basic functionality related to its goal
 - Deployment (Heroku)
 
-The idea behind this project was to make a `restaurant restroom rater`  for any public user, although a (free) account is required to use the browse the database, use the search API, and write reviews. The user-group in mind foodies that may find public restrooms uncomfortable, or people that find upscaled restrooms to be a curiousity. Using `iGottaGo`, users can share their opinions on restrooms in their area, helping eachother find more comfortable areas of relief where they are out to eat. The API can search many other types of public businessess, but iGottaGo is restraurant oriented for now.
+The idea behind this project was to make a `restaurant restroom rater`  for any public user, although a (free) account is required to browse the database, use the search API, and write reviews. The user-group in mind foodies that may find public restrooms uncomfortable, or people that find upscaled restrooms to be a curiousity. Using `iGottaGo`, users can share their opinions about restrooms in their area, helping eachother find more comfortable areas of relief when they are out to eat. The API can search many other types of public businessess, but iGottaGo is restraurant oriented for now.
 
 ## Ideation
 Here is a simple `wireframe` of my idea of what the site could look like before the coding began:
@@ -26,7 +26,7 @@ Here is my basic `Entity Relationship Diagram` to predict the relationships I'd 
 <br>
 
 ## Implementation
-Getting started, I used the [Yellow Pages API](https://rapidapi.com/dodocr7/api/yellow-page-us) from rapidapi. In order to populate the restaurant database, I pulled several datapoints from the API including the name, type of restaurant, address(address, street, state, and zip), hours of operation, and longitiude/latitude for an unfulfilled idea about displaying the location on a map using another API. I seeded my database with about 100 restraunts from the Los Angeles area to provide examples to any user that enters the app. Using relationships(hasMany -> belongsTo), I allowed the user to create reviews on each restaurant with another set of datapoints(user's name, cleanliness, notable features, comfort(1 to 5), and an image URL). I touched up the app with a greyscale style, unsure of what colors would suit an app about restrooms.
+Getting started, I used the [Yellow Pages API](https://rapidapi.com/dodocr7/api/yellow-page-us) from rapidapi. In order to populate the restaurant database, I pulled several datapoints from the API including the name, type of restaurant, address(address, street, state, and zip), hours of operation, and longitiude/latitude. Latitude/longitude were for an unfulfilled idea about displaying the location on a map using another API. I seeded my database with about 100 restraunts from the Los Angeles area to provide examples to any user that enters the app. Using relationships(hasMany -> belongsTo), I allowed the user to create reviews on each restaurant with another set of datapoints(user's name, cleanliness, notable features, comfort(1 to 5), and an image URL). I touched up the app with a greyscale style, unsure of what colors would suit an app about restrooms.
 
 ## Installation
 If you are interested in installing this app on your own computer, follow these steps:
@@ -38,8 +38,37 @@ If you are interested in installing this app on your own computer, follow these 
 npm install
 ```
 
-3. Update your config.json to match your own user-settings.
-
+3. Update your config.json to match your own user-settings. If you are a MAC user, remove "username" and "password". NOTE: Postgres was used for this config.
+```text
+{
+  "development": {
+    "username": "your root name",
+    "password": "your root's password",
+    "database": "iGottaGo",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "your root name",
+    "password": "your root's password",
+    "database": "iGottaGo_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "your root name",
+    "password": "your root's password",
+    "use_env_variable": "DATABASE_URL",
+    "dialect": "postgres",
+    "dialectOptions": {
+        "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+        }
+    }
+  }
+}
+```
 4. Create a database to store the necessary tables:
 ```text
 createdb igottago
@@ -61,7 +90,7 @@ sequelize db:migrate
 sequelize db:seed:all
 ```
 
-7. Now, you will need to create a .env file with your own private data. This app uses the [Yellow Pages API](https://rapidapi.com/dodocr7/api/yellow-page-us), so go there and read over how it is used. Subscribe and get your own API key. Your .env also needs a secret session file, which you can give a space-less string to. Your file should look like this:
+7. Now, you will need to create a .env file with your own private data. This app uses the [Yellow Pages API](https://rapidapi.com/dodocr7/api/yellow-page-us), so go there and read over how it is used. Subscribe and get your own API key. Your .env also needs a secret session key, which you can give any space-less string to. Your file should look like this:
 ```text
 APIKEY=(paste your api key from rapidapi here)
 RAPIDHOST=yellow-page-us.p.rapidapi.com
