@@ -1,5 +1,5 @@
-require('dotenv').config()
-const axios = require('axios');
+// require('dotenv').config()
+// const axios = require('axios');
 // async function testApi() 
 // const fetchRestConfig = {
 //       method: 'GET',
@@ -16,21 +16,21 @@ const axios = require('axios');
 
 // const axios = require("axios");
 
-const options = {
-  method: 'GET',
-  url: 'https://yellow-page-us.p.rapidapi.com/',
-  params: {ypkeyword: 'dentist', yplocation: '20832', yppage: '1'},
-  headers: {
-    'X-RapidAPI-Key': process.env.APIKEY,
-    'X-RapidAPI-Host': process.env.RAPIDHOST
-  }
-};
+// const options = {
+//   method: 'GET',
+//   url: 'https://yellow-page-us.p.rapidapi.com/',
+//   params: {ypkeyword: 'dentist', yplocation: '20832', yppage: '1'},
+//   headers: {
+//     'X-RapidAPI-Key': process.env.APIKEY,
+//     'X-RapidAPI-Host': process.env.RAPIDHOST
+//   }
+// };
 
-axios.request(options).then(function (response) {
-	console.log(response.data);
-}).catch(function (error) {
-	console.error(error);
-});
+// axios.request(options).then(function (response) {
+// 	console.log(response.data);
+// }).catch(function (error) {
+// 	console.error(error);
+// });
 
 // const restaurants = restaurantResponse.data.business_listings;
 //       // check if we got any airline details back, this will be an array of response objects

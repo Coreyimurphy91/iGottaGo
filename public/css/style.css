@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;700&display=swap');
 
+.about {
+  margin-top: 2em;
+  font-weight: 300;
+  text-align: center;
+}
 
-nav ul li {
-  text-decoration: none;
-  display: inline-block;
-  margin-right: .3em;
+.ahover {
+  border-color: #ccc;
+}
+
+.ahover:hover {
+  background-color: rgb(224, 224, 224);
 }
 
 .alert {
@@ -14,93 +21,53 @@ nav ul li {
   width: 100%;
 }
 
-.well2 {
-  background-color: rgb(113, 113, 113);
-  border-radius: 20px;
-  min-height: 350px;
-  border-width: 2px;
-  border-color: white;
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
 }
 
-.ahover {
-  border-color: #ccc ;
+.b-example-vr {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 100vh;
 }
 
-.ahover:hover {
-  background-color: rgb(224, 224, 224);
-}
-
-.well3 {
-  background-color: rgb(224, 224, 224); 
-  border-radius: 20px; 
-  min-height: 350px; 
-  border-width: 2px;
-  border-color: black;
-}
-
-.navbar-brand {
-  padding-top: 20%;
-  font-family: 'Teko', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.teko {
-  font-family: 'Teko', sans-serif;
-  font-weight: 300;
-}
-
-.tekoH {
-  font-family: 'Teko', sans-serif;
-  font-weight: 700;
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
 }
 
 body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-color: #d6d5d5;
 }
 
-h1 {
-  font-family: 'Teko', sans-serif;
-  font-weight:700;
-  color: rgb(33, 33, 33);
-  font-size: 6em;
-  text-align: center;
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
-.about {
-  margin-top:2em;
-
-  font-weight:300;
-  text-align: center;
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }
 
 .contact {
   background-color: rgb(33, 33, 33);
-  color:#d6d5d5;
+  color: #d6d5d5;
   position: absolute;
   bottom: 0;
-}
-
-.getSearching {
-  margin-top: 3em;
-  text-align: center;
-  text-decoration: none;
-  font-size: 1.5em;
-  color: rgb(33, 33, 33);
-}
-
-.just {
-  text-align: center, justify;
-}
-
-.purpose {
-  text-align: center;
-  margin-top: 2em;
-}
-
-.search {
-  text-align: center;
-  padding-top: 10%;
 }
 
 .button-cent-parent {
@@ -109,27 +76,6 @@ h1 {
 
 .button-cent-child {
   justify-content: center;
-}
-
-.log {
-  text-align: right;
-  padding: .5em 1em 0 0;
-}
-
-.sameLine {
-  display: inline;
-}
-
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #d6d5d5;
 }
 
 .form-signin {
@@ -153,37 +99,36 @@ body {
   border-top-right-radius: 0;
 }
 
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+.getSearching {
+  margin-top: 3em;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.5em;
+  color: rgb(33, 33, 33);
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+h1 {
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+  color: rgb(33, 33, 33);
+  font-size: 6em;
+  text-align: center;
 }
 
-.b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+.just {
+  text-align: center, justify;
 }
 
-.b-example-vr {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
+.log {
+  text-align: right;
+  padding: .5em 1em 0 0;
 }
 
-.bi {
-  vertical-align: -.125em;
-  fill: currentColor;
+.navbar-brand {
+  padding-top: 20%;
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .nav-scroller {
@@ -204,7 +149,53 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-#map {
+nav ul li {
+  text-decoration: none;
+  display: inline-block;
+  margin-right: .3em;
+}
+
+.purpose {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.sameLine {
+  display: inline;
+}
+
+.search {
+  text-align: center;
+  padding-top: 10%;
+}
+
+.teko {
+  font-family: 'Teko', sans-serif;
+  font-weight: 300;
+}
+
+.tekoH {
+  font-family: 'Teko', sans-serif;
+  font-weight: 700;
+}
+
+.well2 {
+  background-color: rgb(113, 113, 113);
+  border-radius: 20px;
+  min-height: 350px;
+  border-width: 2px;
+  border-color: white;
+}
+
+.well3 {
+  background-color: rgb(224, 224, 224);
+  border-radius: 20px;
+  min-height: 350px;
+  border-width: 2px;
+  border-color: black;
+}
+
+/* #map {
   height: 500px;
   width: 100%;
-}
+} */

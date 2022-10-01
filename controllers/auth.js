@@ -27,8 +27,7 @@ router.post('/login', passport.authenticate('local', {
 }));
 
 router.post('/signup', async (req, res) => {
-  // we now have access to the user info (req.body);
-  const { email, name, password } = req.body; // goes and us access to whatever key/value inside of the object
+  const { email, name, password } = req.body; // gives us access to whatever key/value inside of the object
   try {
     const [user, created] = await db.User.findOrCreate({
         where: { email },
