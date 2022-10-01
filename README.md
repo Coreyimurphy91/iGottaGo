@@ -69,25 +69,27 @@ npm install
   }
 }
 ```
-4. Create a database to store the necessary tables:
+4. Install sequelize-cli and then create a database to store the necessary tables:
 ```text
-createdb igottago
+npm install sequelize-cli
+
+npx sequelize-cli db:create igottago
 ```
 
 5. Create the tables within the database, and then migrate:
 ```text
-sequelize model:create --name Restaurant --attributes name:string,longitude:string,latitude:string,type:string,address:string,hours:string
+npx sequelize-cli model:create --name Restaurant --attributes name:string,longitude:string,latitude:string,type:string,address:string,hours:string
 
-sequelize model:create --name Review --attributes name:string,cleanliness:string,features:string,comfort:integer,restaurantId:string,userId:string
+npx sequelize-cli model:create --name Review --attributes name:string,cleanliness:string,features:string,comfort:integer,restaurantId:string,userId:string
 
-sequelize model:create --name User --attributes email:string,password:string
+npx sequelize-cli model:create --name User --attributes email:string,password:string
 
-sequelize db:migrate
+npx sequelize-cli db:migrate
 ```
 
 6. To seed your local database, use the provided seeder file and type:
 ```text
-sequelize db:seed:all
+npx sequelize-cli db:seed:all
 ```
 
 7. Now, you will need to create a .env file with your own private data. This app uses the [Yellow Pages API](https://rapidapi.com/dodocr7/api/yellow-page-us), so go there and read over how it is used. Subscribe and get your own API key. Your .env also needs a secret session key, which you can give any space-less string to. Your file should look like this:
@@ -106,3 +108,6 @@ package-lock.json
 
 ## Testing
 Using node, test the app on your localhost(3000)!
+```text
+npm start
+```
